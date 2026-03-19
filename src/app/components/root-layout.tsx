@@ -58,7 +58,7 @@ export function RootLayout() {
       {/* Body: sidebar (desktop) + content */}
       <div className="flex flex-1 overflow-hidden">
         {/* Desktop sidebar — dark */}
-        <aside className="hidden lg:flex flex-col w-56 bg-[#111111] text-white shrink-0 sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto">
+        <aside className="hidden lg:flex flex-col w-56 bg-[#111111] text-white shrink-0 sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto [scrollbar-gutter:stable]">
           {/* Fixed-height spacer — locks the nav start position */}
           <div className="h-4 shrink-0" />
           <nav className="flex flex-col gap-1 px-3">
@@ -68,7 +68,7 @@ export function RootLayout() {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 ${
                     isActive
                       ? "bg-white/10 text-white"
                       : "text-gray-400 hover:bg-white/5 hover:text-white"
@@ -83,7 +83,7 @@ export function RootLayout() {
         </aside>
 
         {/* Main content — light background */}
-        <main className="flex-1 overflow-y-auto bg-gray-100 pb-20 lg:pb-0">
+        <main className="flex-1 overflow-y-auto bg-gray-100 pb-20 lg:pb-0 [scrollbar-gutter:stable]">
           <div className="p-4 lg:p-8">
             <Outlet />
           </div>
