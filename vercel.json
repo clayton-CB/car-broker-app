@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "vite build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "comment": "Client-side routing: React Router owns /garage, /clients and the rest, so any path that is not a real file must return index.html. Static assets are matched before rewrites, so /assets/* still resolves normally.",
+      "source": "/((?!assets/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
