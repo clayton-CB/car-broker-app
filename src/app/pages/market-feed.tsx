@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heart, Eye, Bell, Filter, X, Star, ChevronRight, ChevronLeft } from "lucide-react";
+import { Eye, Bell, Filter, X, Star, ChevronRight, ChevronLeft } from "lucide-react";
 import { mockVehicles } from "../data/mock-data";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
@@ -37,7 +37,6 @@ export function MarketFeed() {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 20;
   const totalPages = 5;
   
   // Filter states

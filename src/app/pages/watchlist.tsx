@@ -1,4 +1,4 @@
-import { Heart, Trash2, Bell, Users, User, ChevronDown, ChevronUp } from "lucide-react";
+import { Heart, Trash2, Users, User, ChevronDown, ChevronUp } from "lucide-react";
 import { mockVehicles, watchlistData } from "../data/mock-data";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useState } from "react";
@@ -14,19 +14,6 @@ const vehicleImages: Record<string, string> = {
 
 function formatCurrency(value: number) {
   return `R ${(value / 1000000).toFixed(2)}m`;
-}
-
-function formatDate(dateString: string) {
-  const date = new Date(dateString);
-  const now = new Date();
-  const diffMs = now.getTime() - date.getTime();
-  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-  
-  if (diffHours < 1) return "Just now";
-  if (diffHours < 24) return `${diffHours}h ago`;
-  const diffDays = Math.floor(diffHours / 24);
-  if (diffDays === 1) return "1 day ago";
-  return `${diffDays} days ago`;
 }
 
 interface InterestStats {
@@ -64,70 +51,6 @@ function calculateInterestStats(watchers: any[]): InterestStats {
   });
 
   return stats;
-}
-
-function VerticalInterestBarChart({ stats }: { stats: InterestStats }) {
-  if (stats.total === 0) return null;
-
-  const maxCount = Math.max(
-    stats.activelyLooking,
-    stats.addToCollection,
-    stats.mightBeInterested,
-    stats.justLooking
-  );
-
-  // Scale to a max height of 60px
-  const maxHeight = 60;
-  
-  const activelyLookingHeight = maxCount > 0 ? (stats.activelyLooking / maxCount) * maxHeight : 0;
-  const addToCollectionHeight = maxCount > 0 ? (stats.addToCollection / maxCount) * maxHeight : 0;
-  const mightBeInterestedHeight = maxCount > 0 ? (stats.mightBeInterested / maxCount) * maxHeight : 0;
-  const justLookingHeight = maxCount > 0 ? (stats.justLooking / maxCount) * maxHeight : 0;
-
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="flex items-end gap-1.5 h-[60px]">
-        {/* Actively Looking - Green */}
-        <div className="flex flex-col items-center gap-1">
-          <div
-            className="w-8 bg-[#4ade80] rounded-t"
-            style={{ height: `${activelyLookingHeight}px` }}
-          />
-          <span className="text-xs text-gray-900 font-medium">{stats.activelyLooking}</span>
-        </div>
-
-        {/* Add to Collection - Blue */}
-        <div className="flex flex-col items-center gap-1">
-          <div
-            className="w-8 bg-blue-500 rounded-t"
-            style={{ height: `${addToCollectionHeight}px` }}
-          />
-          <span className="text-xs text-gray-900 font-medium">{stats.addToCollection}</span>
-        </div>
-
-        {/* Might Be Interested - Yellow */}
-        <div className="flex flex-col items-center gap-1">
-          <div
-            className="w-8 bg-yellow-500 rounded-t"
-            style={{ height: `${mightBeInterestedHeight}px` }}
-          />
-          <span className="text-xs text-gray-900 font-medium">{stats.mightBeInterested}</span>
-        </div>
-
-        {/* Just Looking - Gray */}
-        <div className="flex flex-col items-center gap-1">
-          <div
-            className="w-8 bg-gray-400 rounded-t"
-            style={{ height: `${justLookingHeight}px` }}
-          />
-          <span className="text-xs text-gray-900 font-medium">{stats.justLooking}</span>
-        </div>
-      </div>
-      <div className="text-xs text-gray-500">
-        {stats.total} total
-      </div>
-    </div>
-  );
 }
 
 function InterestBarChart({ stats, platformWatchCount, totalWatchCount }: { stats: InterestStats; platformWatchCount: InterestStats; totalWatchCount: number }) {
@@ -212,7 +135,7 @@ function InterestBarChart({ stats, platformWatchCount, totalWatchCount }: { stat
 export function Watchlist() {
   // State for managing broker's watchlist with add dates
   const [brokerWatchlistIds, setBrokerWatchlistIds] = useState<string[]>(["2", "4", "5"]);
-  const [brokerWatchlistDates, setBrokerWatchlistDates] = useState<Record<string, string>>({
+  const [, setBrokerWatchlistDates] = useState<Record<string, string>>({
     "2": "2024-02-21T10:00:00Z",
     "4": "2024-02-22T14:00:00Z", 
     "5": "2024-02-23T18:00:00Z",

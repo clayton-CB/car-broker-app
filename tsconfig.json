@@ -21,5 +21,17 @@
     }
   },
   "include": ["src"],
+  // The pre-OC-Pro tree (src/pages, src/components, src/hooks, src/App.tsx, src/lib,
+  // src/types) is an unreferenced earlier iteration that imports packages this project
+  // never installed (react-router-dom, @tanstack/react-query, @supabase/supabase-js).
+  // Kept on disk, excluded from typechecking. The live app is src/app + src/main.tsx.
+  "exclude": [
+    "src/App.tsx",
+    "src/pages",
+    "src/components",
+    "src/hooks",
+    "src/lib",
+    "src/types"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
