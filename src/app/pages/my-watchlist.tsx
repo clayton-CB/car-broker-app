@@ -221,7 +221,7 @@ export function MyWatchlist() {
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
-          <h1 className="font-display text-3xl font-medium tracking-tight mb-2">My Watchlist</h1>
+          <h1 className="text-3xl font-semibold tracking-tight mb-2">My Watchlist</h1>
           <p className="text-muted-foreground">
             {entries.length} tracked {entries.length === 1 ? "vehicle" : "vehicles"} • matched
             against community demand and listings

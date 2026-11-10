@@ -80,7 +80,8 @@
 }
 
 @theme inline {
-  --font-display: "Chillax", "Inter", sans-serif;
+  /* owners-circle-web reserves its display face (Chillax) for two rare surfaces and sets
+     everything else in Inter. The portal has no such surface, so Inter is the whole system. */
   --font-body: "Inter", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);

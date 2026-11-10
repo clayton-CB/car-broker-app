@@ -18,16 +18,13 @@ const proNav = [
   { name: "My Clients", href: "/clients" },
 ];
 
+/**
+ * The real Owners Circle mark, served from `public/oc-logo.svg` — the same asset the consumer
+ * app uses, sized exactly as `layouts/pro.vue` sizes it. The artwork is white-filled, which is
+ * safe here because the portal is dark-only.
+ */
 const Logo = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 725.253 420"
-    className="h-9 lg:h-10 w-auto text-foreground"
-    aria-label="Owners Circle"
-  >
-    <path d="M619.919,278.731a88.808,88.808,0,1,1,4.7-92.117L725.253,85.976a232.7,232.7,0,0,0-16.972-18.955A228.825,228.825,0,0,0,384.673,390.629a228.824,228.824,0,0,0,323.608,0q5.919-5.919,11.346-12.19l-99.708-99.708Z" fill="currentColor"/>
-    <path d="M327.385,306.474a262.336,262.336,0,0,0,59.08,85.792c.417.395.847.794,1.268,1.191.969-.937,1.941-1.871,2.9-2.827A228.826,228.826,0,0,0,67.021,67.021a228.826,228.826,0,0,0,161.8,390.63,227.1,227.1,0,0,0,147.116-53.557C353.431,375.172,336.5,341.674,327.385,306.474Zm-98.56,11.177a88.825,88.825,0,1,1,88.826-88.826,88.926,88.926,0,0,1-88.826,88.826Z" fill="currentColor"/>
-  </svg>
+  <img src="/oc-logo.svg" alt="Owners Circle" className="h-9 lg:h-10 w-auto" />
 );
 
 function ProNav() {

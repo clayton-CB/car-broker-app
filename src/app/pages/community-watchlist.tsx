@@ -85,7 +85,7 @@ export function CommunityWatchlist() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="font-display text-3xl font-medium tracking-tight mb-2">Community Watchlist</h1>
+        <h1 className="text-3xl font-semibold tracking-tight mb-2">Community Watchlist</h1>
         <p className="text-muted-foreground">
           {demand.data
             ? `${totalWatchers} watchlist entries across ${demand.data.length} variant + intent groups`

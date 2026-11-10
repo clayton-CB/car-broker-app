@@ -221,7 +221,7 @@ export function Marketplace() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="font-display text-3xl font-medium tracking-tight mb-2">
+        <h1 className="text-3xl font-semibold tracking-tight mb-2">
           Community Marketplace
         </h1>
         <p className="text-muted-foreground">

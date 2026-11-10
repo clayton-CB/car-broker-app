@@ -72,7 +72,7 @@ export function Clients() {
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
-          <h1 className="font-display text-3xl font-medium tracking-tight mb-2">My Clients</h1>
+          <h1 className="text-3xl font-semibold tracking-tight mb-2">My Clients</h1>
           <p className="text-muted-foreground">
             {entries.length} clients • private to you, never shown to the community
           </p>

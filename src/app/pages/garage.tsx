@@ -384,7 +384,7 @@ export function Garage() {
       {/* Header with value trend */}
       <div className="flex items-center justify-between gap-6 flex-wrap">
         <div className="flex-shrink-0">
-          <h1 className="font-display text-3xl font-medium tracking-tight mb-2">My Garage</h1>
+          <h1 className="text-3xl font-semibold tracking-tight mb-2">My Garage</h1>
           <p className="text-muted-foreground">
             {ov
               ? `${ov.vehicle_count} vehicles • Total value: ${formatZARCompact(ov.total_value)}`
